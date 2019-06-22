@@ -1,7 +1,4 @@
 /* See LICENSE file for copyright and license details. */
-#define XFVolM	0x1008ff12
-#define XFVolU	0x1008ff13
-#define XFVolD	0x1008ff11
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -67,23 +64,12 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-modi", "drun", "-show", "drun", NULL };
-static const char *termcmd[]  = { "terminator", NULL };
-static const char *lockcmd[]  = { "lock", NULL };
-static const char *volucmd[]  = { "pamixer", "--allow-boost", "-i", "5", NULL };
-static const char *voldcmd[]  = { "pamixer", "--allow-boost", "-d", "5", NULL };
-static const char *volmcmd[]  = { "pamixer", "-t", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "terminator", "-T", scratchpadname, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_minus,  togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = lockcmd } },
-	{ 0,                            XFVolU,    spawn,          {.v = volucmd } },
-	{ 0,                            XFVolD,    spawn,          {.v = voldcmd } },
-	{ 0,                            XFVolM,    spawn,          {.v = volmcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -124,7 +110,6 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
