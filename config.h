@@ -39,8 +39,10 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 #include "gaplessgrid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
  	{ "[@]",      spiral },
-+	{ "###",	  gaplessgrid },
+	{ "###",      gaplessgrid },
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
