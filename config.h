@@ -32,6 +32,7 @@ static const Rule rules[] = {
 	/* class         instance    title       tags mask     isfloating   isterminal noswallow monitor */
 	{ "qutebrowser",  NULL,       NULL,          1,             0,           0,         0,        -1 },
 	{ "Terminator",   NULL,       NULL,          0,             0,           1,         1,        -1 },
+	{ NULL,           NULL,       "scratchpad",  0,             1,           1,         1,        -1 },
 };
 
 /* layout(s) */
@@ -71,11 +72,14 @@ static const char *lockcmd[]  = { "lock", NULL };
 static const char *volucmd[]  = { "pamixer", "--allow-boost", "-i", "5", NULL };
 static const char *voldcmd[]  = { "pamixer", "--allow-boost", "-d", "5", NULL };
 static const char *volmcmd[]  = { "pamixer", "-t", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "terminator", "-T", scratchpadname, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_minus,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = lockcmd } },
 	{ 0,                            XFVolU,    spawn,          {.v = volucmd } },
 	{ 0,                            XFVolD,    spawn,          {.v = voldcmd } },
