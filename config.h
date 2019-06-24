@@ -30,6 +30,7 @@ static const Rule rules[] = {
 	{ "qutebrowser",  NULL,       NULL,          1,             0,           0,         0,        -1 },
 	{ "Terminator",   NULL,       NULL,          0,             0,           1,         1,        -1 },
 	{ NULL,           NULL,       "scratchpad",  0,             1,           1,         1,        -1 },
+	{ "Rambox",       NULL,       NULL,          1 << 8,        0,           0,         0,        -1 },
 };
 
 /* layout(s) */
