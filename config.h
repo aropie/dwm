@@ -28,13 +28,13 @@ static const Rule rules[] = {
 	 */
 	/* class         instance    title       tags mask     isfloating   isterminal noswallow monitor */
 	{ "qutebrowser",  NULL,       NULL,          1,             0,           0,         0,        -1 },
-	{ "Terminator",   NULL,       NULL,          0,             0,           1,         1,        -1 },
+	{ "st",           NULL,       NULL,          0,             0,           1,         1,        -1 },
 	{ NULL,           NULL,       "scratchpad",  0,             1,           1,         1,        -1 },
 	{ "Rambox",       NULL,       NULL,          1 << 8,        0,           0,         0,        -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.65; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-modi", "drun", "-show", "drun", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "terminator", "-T", scratchpadname, NULL };
+static const char *scratchpadcmd[] = { "st", "-T", scratchpadname, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
